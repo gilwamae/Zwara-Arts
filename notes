@@ -1,0 +1,8 @@
+ollama pull qwen2.5-coder:3b
+ollama run qwen2.5-coder:3b
+ollama list
+-- open a new terminal and run
+opencode
+ollama launch opencode
+-- run code
+notepad opencode.json

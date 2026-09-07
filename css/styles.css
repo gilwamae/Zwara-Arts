@@ -1,0 +1,2726 @@
+/* =========================================================
+   ZWARA ARTS
+   MAIN STYLESHEET
+
+   DESIGN DIRECTION:
+   - Editorial
+   - Premium
+   - Human
+   - Creative
+   - NGO / social impact
+   - Strong typography
+   - Large photography
+   - Generous whitespace
+
+   IMPORTANT:
+   Images are stored separately in:
+
+   assets/images/
+
+   HTML = structure
+   CSS  = design
+   JS   = interaction
+   ========================================================= */
+
+
+/* =========================================================
+   1. RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+
+body {
+    font-family: "DM Sans", sans-serif;
+
+    color: #3b3b38;
+
+    background: #f8f6ef;
+
+    line-height: 1.6;
+
+    overflow-x: hidden;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* =========================================================
+   2. DESIGN VARIABLES
+   ========================================================= */
+
+:root {
+
+    /* Brand */
+
+    --orange: #f2a329;
+
+    --orange-dark: #d88913;
+
+    --green: #1e8061;
+
+    --green-dark: #145b45;
+
+
+    /* Neutrals */
+
+    --charcoal: #20201d;
+
+    --dark: #151513;
+
+    --white: #ffffff;
+
+    --cream: #f8f6ef;
+
+    --cream-dark: #eeeade;
+
+    --grey: #77776f;
+
+    --border: #ddd9ce;
+
+
+    /* Layout */
+
+    --container: 1240px;
+
+    --padding: 32px;
+
+
+    /* Effects */
+
+    --transition: 0.3s ease;
+}
+
+
+/* =========================================================
+   3. GLOBAL ELEMENTS
+   ========================================================= */
+
+img {
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+}
+
+
+a {
+    color: inherit;
+
+    text-decoration: none;
+}
+
+
+button {
+    font-family: inherit;
+
+    border: none;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   4. HEADER
+   ========================================================= */
+
+.site-header {
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    z-index: 1000;
+
+    width: 100%;
+
+    background: rgba(248, 246, 239, 0.95);
+
+    backdrop-filter: blur(14px);
+
+    -webkit-backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(32, 32, 29, 0.08);
+}
+
+
+.navbar {
+
+    width: 100%;
+
+    max-width: var(--container);
+
+    min-height: 82px;
+
+    margin: auto;
+
+    padding: 14px var(--padding);
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
+}
+
+
+/* =========================================================
+   5. LOGO
+   ========================================================= */
+
+.logo {
+
+    display: flex;
+
+    flex-direction: column;
+
+    flex-shrink: 0;
+}
+
+
+.logo-main {
+
+    color: var(--charcoal);
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    line-height: 1;
+
+    letter-spacing: 2px;
+}
+
+
+.logo-sub {
+
+    margin-top: 5px;
+
+    color: var(--green);
+
+    font-size: 6px;
+
+    font-weight: 800;
+
+    letter-spacing: 2.5px;
+
+    line-height: 1;
+}
+
+
+/* =========================================================
+   6. NAVIGATION
+   ========================================================= */
+
+.nav-menu {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 23px;
+
+    margin-left: auto;
+}
+
+
+.nav-link,
+.accessibility-link {
+
+    position: relative;
+
+    color: var(--charcoal);
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition: color var(--transition);
+}
+
+
+.nav-link::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -7px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: var(--orange);
+
+    transition: width var(--transition);
+}
+
+
+.nav-link:hover {
+
+    color: var(--orange);
+}
+
+
+.nav-link:hover::after {
+
+    width: 100%;
+}
+
+
+.accessibility-link {
+
+    padding: 0;
+
+    background: transparent;
+}
+
+
+.accessibility-link:hover {
+
+    color: var(--green);
+}
+
+
+/* =========================================================
+   7. CTA
+   ========================================================= */
+
+.desktop-cta {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 12px 20px;
+
+    flex-shrink: 0;
+
+    background: var(--orange);
+
+    color: var(--charcoal);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    border-radius: 2px;
+
+    transition:
+        transform var(--transition),
+        background var(--transition);
+}
+
+
+.desktop-cta:hover {
+
+    transform: translateY(-2px);
+
+    background: var(--orange-dark);
+}
+
+
+.mobile-cta {
+
+    display: none;
+}
+
+
+/* =========================================================
+   8. HAMBURGER
+   ========================================================= */
+
+.menu-toggle {
+
+    display: none;
+
+    width: 44px;
+
+    height: 44px;
+
+    margin-left: auto;
+
+    padding: 8px;
+
+    background: transparent;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+}
+
+
+.menu-toggle span {
+
+    width: 25px;
+
+    height: 2px;
+
+    display: block;
+
+    background: var(--charcoal);
+
+    transition:
+        transform var(--transition),
+        opacity var(--transition);
+}
+
+
+/* =========================================================
+   9. HERO
+   ========================================================= */
+
+.hero {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    padding: 150px var(--padding) 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    overflow: hidden;
+
+    background: var(--cream);
+}
+
+
+.hero-container {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    max-width: var(--container);
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 0.95fr 1.05fr;
+
+    align-items: center;
+
+    gap: 60px;
+}
+
+
+/* =========================================================
+   10. HERO ORANGE DECORATION
+   ========================================================= */
+
+.hero-orange-shape {
+
+    position: absolute;
+
+    top: 13%;
+
+    right: -150px;
+
+    width: 430px;
+
+    height: 430px;
+
+    border-radius: 50%;
+
+    background: rgba(242, 163, 41, 0.14);
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   11. HERO CONTENT
+   ========================================================= */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.eyebrow {
+
+    margin-bottom: 24px;
+
+    color: var(--green);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+
+.hero h1 {
+
+    max-width: 720px;
+
+    color: var(--charcoal);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(62px, 7vw, 105px);
+
+    font-weight: 600;
+
+    line-height: 0.98;
+
+    letter-spacing: -4px;
+}
+
+
+.hero h1 span {
+
+    color: var(--orange);
+
+    font-style: italic;
+}
+
+
+.hero-description {
+
+    max-width: 530px;
+
+    margin-top: 30px;
+
+    color: var(--grey);
+
+    font-size: 17px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================================================
+   12. HERO BUTTONS
+   ========================================================= */
+
+.hero-actions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 12px;
+
+    margin-top: 34px;
+}
+
+
+.button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    min-height: 50px;
+
+    padding: 13px 22px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        color var(--transition);
+}
+
+
+.button span {
+
+    font-size: 18px;
+
+    line-height: 1;
+}
+
+
+.button-primary {
+
+    background: var(--orange);
+
+    color: var(--charcoal);
+}
+
+
+.button-primary:hover {
+
+    transform: translateY(-3px);
+
+    background: var(--orange-dark);
+}
+
+
+.button-outline {
+
+    border: 1px solid var(--charcoal);
+
+    color: var(--charcoal);
+}
+
+
+.button-outline:hover {
+
+    background: var(--charcoal);
+
+    color: var(--white);
+}
+
+
+/* =========================================================
+   13. HERO IMPACT
+   ========================================================= */
+
+.hero-impact {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-top: 55px;
+}
+
+
+.impact-number {
+
+    color: var(--charcoal);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 27px;
+
+    font-weight: 700;
+}
+
+
+.impact-text {
+
+    max-width: 150px;
+
+    padding-left: 15px;
+
+    border-left: 1px solid var(--border);
+
+    color: var(--grey);
+
+    font-size: 11px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   14. HERO IMAGE
+   ========================================================= */
+
+.hero-visual {
+
+    position: relative;
+
+    min-height: 620px;
+}
+
+
+.hero-image-wrapper {
+
+    position: absolute;
+
+    top: 0;
+
+    right: 0;
+
+    width: 88%;
+
+    height: 590px;
+
+    overflow: hidden;
+
+    background: #ddd;
+}
+
+
+.hero-image {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.8s ease;
+}
+
+
+.hero-image-wrapper:hover .hero-image {
+
+    transform: scale(1.04);
+}
+
+
+/* =========================================================
+   15. HERO FLOATING CARD
+   ========================================================= */
+
+.hero-floating-card {
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 50px;
+
+    z-index: 5;
+
+    width: 225px;
+
+    padding: 20px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 13px;
+
+    background: var(--white);
+
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+
+.floating-icon {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    width: 35px;
+
+    height: 35px;
+
+    flex-shrink: 0;
+
+    background: var(--orange);
+
+    color: var(--charcoal);
+
+    font-size: 18px;
+}
+
+
+.hero-floating-card strong {
+
+    display: block;
+
+    color: var(--charcoal);
+
+    font-size: 10px;
+
+    letter-spacing: 1.5px;
+}
+
+
+.hero-floating-card p {
+
+    margin-top: 5px;
+
+    color: var(--grey);
+
+    font-size: 11px;
+
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   16. VERTICAL HERO TEXT
+   ========================================================= */
+
+.hero-side-text {
+
+    position: absolute;
+
+    top: 35px;
+
+    right: -18px;
+
+    writing-mode: vertical-rl;
+
+    color: var(--grey);
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   17. SCROLL INDICATOR
+   ========================================================= */
+
+.scroll-indicator {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    left: 50%;
+
+    z-index: 3;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+
+    transform: translateX(-50%);
+}
+
+
+.scroll-indicator span {
+
+    color: var(--grey);
+
+    font-size: 8px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.scroll-indicator strong {
+
+    color: var(--orange);
+
+    font-size: 18px;
+}
+
+
+/* =========================================================
+   18. GENERAL SECTION
+   ========================================================= */
+
+.about-section,
+.work-section,
+.stories-section,
+.contact-section {
+
+    padding: 130px var(--padding);
+
+    background: var(--cream);
+}
+
+
+.section-container {
+
+    width: 100%;
+
+    max-width: var(--container);
+
+    margin: auto;
+}
+
+
+/* =========================================================
+   19. SECTION HEADER
+   ========================================================= */
+
+.section-top {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 45px;
+}
+
+
+.section-number {
+
+    color: var(--orange);
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+
+.section-label {
+
+    color: var(--green);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+}
+
+
+/* =========================================================
+   20. ABOUT HEADING
+   ========================================================= */
+
+.about-heading h2 {
+
+    max-width: 1000px;
+
+    color: var(--charcoal);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(48px, 6vw, 82px);
+
+    font-weight: 500;
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+}
+
+
+.about-heading em {
+
+    color: var(--green);
+
+    font-style: italic;
+}
+
+
+/* =========================================================
+   21. ABOUT GRID
+   ========================================================= */
+
+.about-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 0.8fr;
+
+    gap: 90px;
+
+    align-items: center;
+
+    margin-top: 80px;
+}
+
+
+.about-image-wrapper {
+
+    position: relative;
+
+    min-height: 550px;
+}
+
+
+.about-image {
+
+    width: 88%;
+
+    height: 550px;
+
+    object-fit: cover;
+}
+
+
+.image-caption {
+
+    position: absolute;
+
+    right: 0;
+
+    bottom: 35px;
+
+    width: 180px;
+
+    padding: 16px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    background: var(--orange);
+
+    color: var(--charcoal);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+.about-content {
+
+    max-width: 470px;
+}
+
+
+.large-text {
+
+    color: var(--charcoal);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 25px;
+
+    line-height: 1.35;
+}
+
+
+.about-content > p:not(.large-text) {
+
+    margin-top: 25px;
+
+    color: var(--grey);
+
+    font-size: 15px;
+
+    line-height: 1.8;
+}
+
+
+.text-link {
+
+    display: inline-flex;
+
+    gap: 15px;
+
+    margin-top: 35px;
+
+    color: var(--charcoal);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    border-bottom: 1px solid var(--charcoal);
+
+    padding-bottom: 7px;
+}
+
+
+/* =========================================================
+   22. IMPACT STRIP
+   ========================================================= */
+
+.impact-strip {
+
+    padding: 55px var(--padding);
+
+    background: var(--green);
+
+    color: var(--white);
+}
+
+
+.impact-container {
+
+    width: 100%;
+
+    max-width: var(--container);
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+}
+
+
+.impact-item {
+
+    padding: 10px 35px;
+
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+.impact-item:first-child {
+
+    padding-left: 0;
+}
+
+
+.impact-item:last-child {
+
+    border-right: none;
+}
+
+
+.impact-item strong {
+
+    display: block;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 42px;
+
+    font-weight: 500;
+}
+
+
+.impact-item span {
+
+    color: rgba(255, 255, 255, 0.75);
+
+    font-size: 11px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   23. WORK SECTION
+   ========================================================= */
+
+.work-section {
+
+    background: var(--white);
+}
+
+
+.section-heading-row {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 50px;
+
+    margin-bottom: 65px;
+}
+
+
+.section-heading-row h2 {
+
+    max-width: 650px;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(50px, 6vw, 78px);
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: -2px;
+}
+
+
+.section-heading-row h2 em {
+
+    color: var(--orange);
+
+    font-style: italic;
+}
+
+
+.section-heading-row > p {
+
+    max-width: 350px;
+
+    color: var(--grey);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   24. WORK CARDS
+   ========================================================= */
+
+.work-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 2px;
+
+    background: var(--border);
+}
+
+
+.work-card {
+
+    position: relative;
+
+    min-height: 390px;
+
+    padding: 40px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    background: var(--cream);
+
+    transition:
+        transform var(--transition),
+        background var(--transition);
+}
+
+
+.work-card:hover {
+
+    transform: translateY(-8px);
+
+    background: var(--white);
+}
+
+
+.work-card-featured {
+
+    background: var(--orange);
+}
+
+
+.work-card-number {
+
+    color: var(--green);
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+
+.work-card h3 {
+
+    margin-top: auto;
+
+    color: var(--charcoal);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 39px;
+
+    font-weight: 500;
+
+    line-height: 1;
+}
+
+
+.work-card h3 span {
+
+    color: var(--green);
+
+    font-style: italic;
+}
+
+
+.work-card-featured h3 span {
+
+    color: var(--white);
+}
+
+
+.work-card p {
+
+    max-width: 300px;
+
+    margin-top: 20px;
+
+    color: var(--grey);
+
+    font-size: 13px;
+}
+
+
+.work-card-featured p {
+
+    color: rgba(32, 32, 29, 0.75);
+}
+
+
+.work-card a {
+
+    margin-top: 30px;
+
+    color: var(--charcoal);
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   25. PROGRAMS SECTION
+   ========================================================= */
+
+.programs-section {
+
+    padding: 130px var(--padding);
+
+    background: var(--charcoal);
+
+    color: var(--white);
+}
+
+
+.light-label .section-label {
+
+    color: var(--white);
+}
+
+
+.light-heading h2 {
+
+    color: var(--white);
+}
+
+
+.light-heading h2 em {
+
+    color: var(--orange);
+}
+
+
+.light-text-link {
+
+    color: var(--white);
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    border-bottom: 1px solid rgba(255,255,255,0.4);
+
+    padding-bottom: 7px;
+}
+
+
+/* =========================================================
+   26. PROGRAM GRID
+   ========================================================= */
+
+.program-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+
+.program-card {
+
+    background: #292925;
+
+    transition: transform var(--transition);
+}
+
+
+.program-card:hover {
+
+    transform: translateY(-8px);
+}
+
+
+.program-image {
+
+    height: 320px;
+
+    overflow: hidden;
+}
+
+
+.program-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.7s ease;
+}
+
+
+.program-card:hover img {
+
+    transform: scale(1.05);
+}
+
+
+.program-content {
+
+    padding: 25px;
+}
+
+
+.program-content > span {
+
+    color: var(--orange);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.program-content h3 {
+
+    margin-top: 12px;
+
+    color: var(--white);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 31px;
+
+    font-weight: 500;
+}
+
+
+.program-content p {
+
+    margin-top: 10px;
+
+    color: #aaa;
+
+    font-size: 13px;
+}
+
+
+.program-content a {
+
+    display: inline-block;
+
+    margin-top: 22px;
+
+    color: var(--white);
+
+    font-size: 11px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   27. CAMPAIGN
+   ========================================================= */
+
+.campaign-section {
+
+    padding: 0 var(--padding);
+
+    background: var(--orange);
+}
+
+
+.campaign-container {
+
+    width: 100%;
+
+    max-width: var(--container);
+
+    min-height: 600px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+}
+
+
+.campaign-content {
+
+    padding: 90px 0;
+}
+
+
+.campaign-content .section-label {
+
+    color: var(--charcoal);
+}
+
+
+.campaign-content h2 {
+
+    margin-top: 25px;
+
+    color: var(--charcoal);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(55px, 7vw, 90px);
+
+    font-weight: 500;
+
+    line-height: 0.95;
+
+    letter-spacing: -3px;
+}
+
+
+.campaign-content h2 em {
+
+    color: var(--white);
+
+    font-style: italic;
+}
+
+
+.campaign-content p {
+
+    max-width: 470px;
+
+    margin-top: 30px;
+
+    color: rgba(32, 32, 29, 0.75);
+
+    font-size: 15px;
+}
+
+
+.button-dark {
+
+    margin-top: 30px;
+
+    background: var(--charcoal);
+
+    color: var(--white);
+}
+
+
+.button-dark:hover {
+
+    background: var(--green);
+}
+
+
+/* =========================================================
+   28. CAMPAIGN CIRCLE
+   ========================================================= */
+
+.campaign-visual {
+
+    min-height: 600px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.campaign-circle {
+
+    width: 360px;
+
+    height: 360px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border: 2px solid var(--charcoal);
+
+    border-radius: 50%;
+
+    transform: rotate(-8deg);
+}
+
+
+.campaign-circle span {
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 5px;
+}
+
+
+.campaign-circle strong {
+
+    margin: 10px 0;
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 55px;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   29. STORIES
+   ========================================================= */
+
+.stories-section {
+
+    background: var(--cream);
+}
+
+
+.stories-grid {
+
+    display: grid;
+
+    grid-template-columns: 1.25fr 0.75fr;
+
+    gap: 25px;
+}
+
+
+.story-card {
+
+    background: var(--white);
+}
+
+
+.story-image {
+
+    position: relative;
+
+    height: 360px;
+
+    overflow: hidden;
+}
+
+
+.story-featured .story-image {
+
+    height: 480px;
+}
+
+
+.story-image img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.7s ease;
+}
+
+
+.story-card:hover .story-image img {
+
+    transform: scale(1.04);
+}
+
+
+.story-tag {
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 20px;
+
+    padding: 8px 12px;
+
+    background: var(--orange);
+
+    color: var(--charcoal);
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+.story-content {
+
+    padding: 28px;
+}
+
+
+.story-content > span {
+
+    color: var(--green);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+}
+
+
+.story-content h3 {
+
+    max-width: 600px;
+
+    margin-top: 12px;
+
+    color: var(--charcoal);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: 34px;
+
+    font-weight: 500;
+
+    line-height: 1.05;
+}
+
+
+.story-card:not(.story-featured) .story-content h3 {
+
+    font-size: 28px;
+}
+
+
+.story-content p {
+
+    margin-top: 15px;
+
+    color: var(--grey);
+
+    font-size: 13px;
+}
+
+
+.story-content a {
+
+    display: inline-block;
+
+    margin-top: 22px;
+
+    color: var(--charcoal);
+
+    font-size: 11px;
+
+    font-weight: 800;
+}
+
+
+/* =========================================================
+   30. GET INVOLVED
+   ========================================================= */
+
+.get-involved-section {
+
+    padding: 140px var(--padding);
+
+    background: var(--green);
+
+    color: var(--white);
+
+    text-align: center;
+}
+
+
+.get-involved-container {
+
+    max-width: 900px;
+
+    margin: auto;
+}
+
+
+.get-involved-section .section-label {
+
+    color: var(--orange);
+}
+
+
+.get-involved-section h2 {
+
+    margin-top: 25px;
+
+    color: var(--white);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(55px, 8vw, 100px);
+
+    font-weight: 500;
+
+    line-height: 0.95;
+
+    letter-spacing: -3px;
+}
+
+
+.get-involved-section h2 em {
+
+    color: var(--orange);
+
+    font-style: italic;
+}
+
+
+.get-involved-section p {
+
+    max-width: 550px;
+
+    margin: 30px auto 0;
+
+    color: rgba(255,255,255,0.75);
+
+    font-size: 15px;
+}
+
+
+.get-involved-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 35px;
+}
+
+
+.button-light {
+
+    border: 1px solid var(--white);
+
+    color: var(--white);
+}
+
+
+.button-light:hover {
+
+    background: var(--white);
+
+    color: var(--green);
+}
+
+
+/* =========================================================
+   31. CONTACT
+   ========================================================= */
+
+.contact-section {
+
+    background: var(--white);
+}
+
+
+.contact-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 0.7fr;
+
+    gap: 100px;
+}
+
+
+.contact-grid h2 {
+
+    max-width: 700px;
+
+    margin-top: 25px;
+
+    color: var(--charcoal);
+
+    font-family: "Playfair Display", serif;
+
+    font-size: clamp(50px, 6vw, 80px);
+
+    font-weight: 500;
+
+    line-height: 1;
+}
+
+
+.contact-grid h2 em {
+
+    color: var(--orange);
+
+    font-style: italic;
+}
+
+
+.contact-details {
+
+    align-self: end;
+
+    padding-bottom: 10px;
+}
+
+
+.contact-details p {
+
+    color: var(--grey);
+
+    font-size: 15px;
+}
+
+
+.contact-details a {
+
+    display: block;
+
+    margin-top: 18px;
+
+    color: var(--charcoal);
+
+    font-size: 17px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   32. FOOTER
+   ========================================================= */
+
+.site-footer {
+
+    padding: 35px var(--padding);
+
+    background: var(--dark);
+
+    color: #888;
+}
+
+
+.footer-container {
+
+    width: 100%;
+
+    max-width: var(--container);
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+
+.footer-brand {
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.footer-brand .logo-main {
+
+    color: var(--white);
+}
+
+
+.footer-container p {
+
+    font-size: 11px;
+}
+
+
+.footer-links {
+
+    display: flex;
+
+    gap: 20px;
+}
+
+
+.footer-links a {
+
+    color: #aaa;
+
+    font-size: 10px;
+
+    transition: color var(--transition);
+}
+
+
+.footer-links a:hover {
+
+    color: var(--orange);
+}
+
+
+/* =========================================================
+   33. TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    :root {
+
+        --padding: 24px;
+    }
+
+
+    .nav-menu {
+
+        gap: 15px;
+    }
+
+
+    .nav-link,
+    .accessibility-link {
+
+        font-size: 11px;
+    }
+
+
+    .hero-container {
+
+        gap: 40px;
+    }
+
+
+    .hero h1 {
+
+        font-size: clamp(55px, 7vw, 80px);
+    }
+
+
+    .hero-visual {
+
+        min-height: 550px;
+    }
+
+
+    .hero-image-wrapper {
+
+        height: 520px;
+    }
+}
+
+
+/* =========================================================
+   34. MOBILE NAVIGATION
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+
+    /* -----------------------------------------
+       HEADER
+       ----------------------------------------- */
+
+    .navbar {
+
+        min-height: 72px;
+
+        padding: 12px 20px;
+    }
+
+
+    /* -----------------------------------------
+       HAMBURGER
+       ----------------------------------------- */
+
+    .menu-toggle {
+
+        display: flex;
+    }
+
+
+    /* -----------------------------------------
+       DESKTOP CTA
+       ----------------------------------------- */
+
+    .desktop-cta {
+
+        display: none;
+    }
+
+
+    /* -----------------------------------------
+       MOBILE MENU
+       ----------------------------------------- */
+
+    .nav-menu {
+
+        position: absolute;
+
+        top: 100%;
+
+        left: 0;
+
+        width: 100%;
+
+        max-height: calc(100vh - 72px);
+
+        overflow-y: auto;
+
+        margin: 0;
+
+        padding: 12px 20px 25px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        background: var(--cream);
+
+        box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        transform: translateY(-10px);
+
+        transition:
+            opacity var(--transition),
+            transform var(--transition),
+            visibility var(--transition);
+    }
+
+
+    .nav-menu.active {
+
+        opacity: 1;
+
+        visibility: visible;
+
+        transform: translateY(0);
+    }
+
+
+    .nav-link {
+
+        width: 100%;
+
+        padding: 15px 4px;
+
+        border-bottom: 1px solid var(--border);
+
+        font-size: 15px;
+    }
+
+
+    .nav-link::after {
+
+        display: none;
+    }
+
+
+    .accessibility-link {
+
+        width: 100%;
+
+        padding: 15px 4px;
+
+        text-align: left;
+
+        border-bottom: 1px solid var(--border);
+
+        font-size: 15px;
+    }
+
+
+    .mobile-cta {
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        width: 100%;
+
+        margin-top: 18px;
+
+        padding: 14px;
+
+        background: var(--orange);
+
+        color: var(--charcoal);
+
+        font-size: 13px;
+
+        font-weight: 700;
+    }
+
+
+    /* -----------------------------------------
+       HERO
+       ----------------------------------------- */
+
+    .hero {
+
+        min-height: auto;
+
+        padding: 125px 20px 70px;
+    }
+
+
+    .hero-container {
+
+        grid-template-columns: 1fr;
+
+        gap: 55px;
+    }
+
+
+    .hero h1 {
+
+        max-width: 700px;
+
+        font-size: clamp(52px, 14vw, 75px);
+
+        letter-spacing: -2px;
+    }
+
+
+    .hero-description {
+
+        font-size: 15px;
+    }
+
+
+    .hero-visual {
+
+        min-height: 500px;
+    }
+
+
+    .hero-image-wrapper {
+
+        width: 88%;
+
+        height: 470px;
+    }
+
+
+    .hero-floating-card {
+
+        bottom: 20px;
+    }
+
+
+    .hero-side-text {
+
+        right: -10px;
+    }
+
+
+    .scroll-indicator {
+
+        display: none;
+    }
+
+
+    /* -----------------------------------------
+       ABOUT
+       ----------------------------------------- */
+
+    .about-section,
+    .work-section,
+    .stories-section,
+    .contact-section {
+
+        padding: 90px 20px;
+    }
+
+
+    .about-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+        margin-top: 55px;
+    }
+
+
+    .about-image-wrapper {
+
+        min-height: 450px;
+    }
+
+
+    .about-image {
+
+        width: 90%;
+
+        height: 450px;
+    }
+
+
+    /* -----------------------------------------
+       IMPACT
+       ----------------------------------------- */
+
+    .impact-strip {
+
+        padding: 45px 20px;
+    }
+
+
+    .impact-container {
+
+        grid-template-columns: repeat(2, 1fr);
+
+        row-gap: 30px;
+    }
+
+
+    .impact-item:nth-child(2) {
+
+        border-right: none;
+    }
+
+
+    /* -----------------------------------------
+       WORK
+       ----------------------------------------- */
+
+    .section-heading-row {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 25px;
+
+        margin-bottom: 45px;
+    }
+
+
+    .work-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .work-card {
+
+        min-height: 330px;
+    }
+
+
+    /* -----------------------------------------
+       PROGRAMS
+       ----------------------------------------- */
+
+    .programs-section {
+
+        padding: 90px 20px;
+    }
+
+
+    .program-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .program-image {
+
+        height: 400px;
+    }
+
+
+    /* -----------------------------------------
+       CAMPAIGN
+       ----------------------------------------- */
+
+    .campaign-section {
+
+        padding: 0 20px;
+    }
+
+
+    .campaign-container {
+
+        grid-template-columns: 1fr;
+
+        min-height: auto;
+    }
+
+
+    .campaign-content {
+
+        padding: 90px 0 40px;
+    }
+
+
+    .campaign-visual {
+
+        min-height: 400px;
+    }
+
+
+    /* -----------------------------------------
+       STORIES
+       ----------------------------------------- */
+
+    .stories-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .story-featured .story-image,
+    .story-image {
+
+        height: 400px;
+    }
+
+
+    /* -----------------------------------------
+       GET INVOLVED
+       ----------------------------------------- */
+
+    .get-involved-section {
+
+        padding: 100px 20px;
+    }
+
+
+    .get-involved-buttons {
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    /* -----------------------------------------
+       CONTACT
+       ----------------------------------------- */
+
+    .contact-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+
+    /* -----------------------------------------
+       FOOTER
+       ----------------------------------------- */
+
+    .footer-container {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+}
+
+
+/* =========================================================
+   35. SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .logo-main {
+
+        font-size: 21px;
+    }
+
+
+    .logo-sub {
+
+        font-size: 5px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .hero {
+
+        padding: 115px 18px 60px;
+    }
+
+
+    .hero h1 {
+
+        font-size: 49px;
+
+        letter-spacing: -1.5px;
+    }
+
+
+    .hero-description {
+
+        font-size: 14px;
+
+        line-height: 1.7;
+    }
+
+
+    .hero-actions {
+
+        flex-direction: column;
+
+        align-items: stretch;
+    }
+
+
+    .button {
+
+        width: 100%;
+    }
+
+
+    .hero-visual {
+
+        min-height: 400px;
+    }
+
+
+    .hero-image-wrapper {
+
+        width: 91%;
+
+        height: 370px;
+    }
+
+
+    .hero-floating-card {
+
+        width: 190px;
+
+        padding: 15px;
+
+        bottom: 5px;
+    }
+
+
+    .about-heading h2 {
+
+        font-size: 43px;
+    }
+
+
+    .about-image-wrapper {
+
+        min-height: 380px;
+    }
+
+
+    .about-image {
+
+        height: 380px;
+
+        width: 90%;
+    }
+
+
+    .image-caption {
+
+        width: 145px;
+
+        bottom: 20px;
+
+        padding: 12px;
+
+        font-size: 7px;
+    }
+
+
+    .large-text {
+
+        font-size: 21px;
+    }
+
+
+    .impact-container {
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+    .impact-item {
+
+        padding: 5px 15px;
+    }
+
+
+    .impact-item:nth-child(odd) {
+
+        padding-left: 0;
+    }
+
+
+    .impact-item strong {
+
+        font-size: 32px;
+    }
+
+
+    .section-heading-row h2 {
+
+        font-size: 45px;
+    }
+
+
+    .work-card {
+
+        min-height: 310px;
+
+        padding: 28px;
+    }
+
+
+    .work-card h3 {
+
+        font-size: 34px;
+    }
+
+
+    .program-image {
+
+        height: 330px;
+    }
+
+
+    .campaign-content h2 {
+
+        font-size: 55px;
+
+        letter-spacing: -2px;
+    }
+
+
+    .campaign-circle {
+
+        width: 270px;
+
+        height: 270px;
+    }
+
+
+    .campaign-circle strong {
+
+        font-size: 40px;
+    }
+
+
+    .story-featured .story-image,
+    .story-image {
+
+        height: 320px;
+    }
+
+
+    .story-content h3 {
+
+        font-size: 28px;
+    }
+
+
+    .get-involved-section h2 {
+
+        font-size: 54px;
+    }
+
+
+    .contact-grid h2 {
+
+        font-size: 45px;
+    }
+
+
+    .footer-links {
+
+        flex-wrap: wrap;
+    }
+}
+
+
+/* =========================================================
+   36. ACCESSIBILITY - REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+
+        scroll-behavior: auto;
+    }
+
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}
