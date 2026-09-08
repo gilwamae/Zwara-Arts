@@ -1,0 +1,20 @@
+[project]
+name = "background"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "gilwamae", email = "gilwayne900@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "pillow>=12.3.0",
+    "rembg[cpu]>=2.0.84",
+]
+
+[project.scripts]
+background = "background:main"
+
+[build-system]
+requires = ["uv_build>=0.12.10,<0.13.0"]
+build-backend = "uv_build"

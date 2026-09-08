@@ -189,6 +189,10 @@ button {
 
     flex-shrink: 0;
 }
+.logo img{
+    height: 64px;
+    width: 64px;
+}
 
 
 .logo-main {
@@ -226,25 +230,21 @@ button {
    ========================================================= */
 
 .nav-menu {
-
     display: flex;
-
     align-items: center;
-
     gap: 23px;
-
     margin-left: auto;
 }
 
 
 .nav-link,
 .accessibility-link {
-
     position: relative;
 
     color: var(--charcoal);
 
-    font-size: 12px;
+    /* Increased from 12px to 14px for better readability */
+    font-size: 14px;
 
     font-weight: 600;
 
@@ -255,17 +255,14 @@ button {
 
 
 .nav-link::after {
-
     content: "";
 
     position: absolute;
 
     left: 0;
-
     bottom: -7px;
 
     width: 0;
-
     height: 2px;
 
     background: var(--orange);
@@ -275,19 +272,16 @@ button {
 
 
 .nav-link:hover {
-
     color: var(--orange);
 }
 
 
 .nav-link:hover::after {
-
     width: 100%;
 }
 
 
 .accessibility-link {
-
     padding: 0;
 
     background: transparent;
@@ -295,7 +289,6 @@ button {
 
 
 .accessibility-link:hover {
-
     color: var(--green);
 }
 
@@ -305,11 +298,9 @@ button {
    ========================================================= */
 
 .desktop-cta {
-
     display: inline-flex;
 
     align-items: center;
-
     justify-content: center;
 
     padding: 12px 20px;
@@ -320,7 +311,7 @@ button {
 
     color: var(--charcoal);
 
-    font-size: 12px;
+    font-size: 14px;
 
     font-weight: 700;
 
@@ -333,7 +324,6 @@ button {
 
 
 .desktop-cta:hover {
-
     transform: translateY(-2px);
 
     background: var(--orange-dark);
@@ -341,7 +331,6 @@ button {
 
 
 .mobile-cta {
-
     display: none;
 }
 
@@ -351,11 +340,9 @@ button {
    ========================================================= */
 
 .menu-toggle {
-
     display: none;
 
     width: 44px;
-
     height: 44px;
 
     margin-left: auto;
@@ -367,17 +354,22 @@ button {
     flex-direction: column;
 
     align-items: center;
-
     justify-content: center;
 
     gap: 5px;
+
+    /*
+       Keeps the hamburger above the mobile
+       navigation when it opens.
+    */
+    position: relative;
+
+    z-index: 1001;
 }
 
 
 .menu-toggle span {
-
     width: 25px;
-
     height: 2px;
 
     display: block;
@@ -390,6 +382,246 @@ button {
 }
 
 
+/* =========================================================
+   MOBILE NAVIGATION
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    /* Show hamburger */
+
+    .menu-toggle {
+        display: flex;
+    }
+
+
+    /* Hide desktop CTA */
+
+    .desktop-cta {
+        display: none;
+    }
+
+
+    /*
+       Mobile navigation menu.
+
+       It is hidden initially and becomes visible
+       when JavaScript adds the "active" class.
+    */
+
+    .nav-menu {
+        position: absolute;
+
+        top: 100%;
+        left: 0;
+
+        width: 100%;
+
+        max-height: calc(100vh - 72px);
+
+        overflow-y: auto;
+
+        margin: 0;
+
+        padding: 15px 20px 25px;
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 0;
+
+        background: var(--cream);
+
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+
+        /*
+           Make sure the menu appears above
+           the website content.
+        */
+
+        z-index: 1000;
+
+        /*
+           Hidden state
+        */
+
+        opacity: 0;
+
+        visibility: hidden;
+
+        pointer-events: none;
+
+        transform: translateY(-10px);
+
+        transition:
+            opacity 0.3s ease,
+            visibility 0.3s ease,
+            transform 0.3s ease;
+    }
+
+
+    /*
+       IMPORTANT FIX
+
+       JavaScript adds "active" to #navMenu
+       when the hamburger is clicked.
+
+       This rule makes the navigation visible.
+    */
+
+    .nav-menu.active {
+        opacity: 1;
+
+        visibility: visible;
+
+        pointer-events: auto;
+
+        transform: translateY(0);
+    }
+
+
+    /* -----------------------------------------------------
+       MOBILE NAVIGATION LINKS
+       ----------------------------------------------------- */
+
+    .nav-link {
+        display: block;
+
+        width: 100%;
+
+        padding: 15px 4px;
+
+        border-bottom: 1px solid var(--border);
+
+        color: var(--charcoal);
+
+        /*
+           Increased mobile font size so the links
+           are easier to read on phones.
+        */
+
+        font-size: 16px;
+
+        font-weight: 600;
+    }
+
+
+    /*
+       Remove desktop underline animation on mobile.
+    */
+
+    .nav-link::after {
+        display: none;
+    }
+
+
+    /* -----------------------------------------------------
+       MOBILE ACCESSIBILITY BUTTON
+       ----------------------------------------------------- */
+
+    .accessibility-link {
+        display: block;
+
+        width: 100%;
+
+        padding: 15px 4px;
+
+        text-align: left;
+
+        border-bottom: 1px solid var(--border);
+
+        background: transparent;
+
+        color: var(--charcoal);
+
+        font-size: 16px;
+
+        font-weight: 600;
+    }
+
+
+    /* -----------------------------------------------------
+       MOBILE GET INVOLVED BUTTON
+       ----------------------------------------------------- */
+
+    .mobile-cta {
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        width: 100%;
+
+        margin-top: 18px;
+
+        padding: 14px;
+
+        background: var(--orange);
+
+        color: var(--charcoal);
+
+        font-size: 14px;
+
+        font-weight: 700;
+    }
+
+}
+
+
+/* =========================================================
+   HAMBURGER → X ANIMATION
+   ========================================================= */
+
+/*
+   When JavaScript adds "active" to .menu-toggle,
+   the three hamburger lines become an X.
+*/
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1050px) {
+
+    .nav-link,
+    .accessibility-link {
+        font-size: 13px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+    .nav-link,
+    .accessibility-link {
+        font-size: 16px;
+    }
+
+}
 /* =========================================================
    9. HERO
    ========================================================= */
